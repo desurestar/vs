@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT - Ваш помощник</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ChatGPT</h1>
+        <p>Ваш виртуальный помощник</p>
+    </header>
+
+    <main>
+        <div id="chat-container">
+            <div class="message bot-message">
+                <p>Привет! Как я могу помочь вам сегодня?</p>
+            </div>
+            <!-- Пример пользовательского сообщения -->
+            <div class="message user-message">
+                <p>Расскажи мне о себе</p>
+            </div>
+            <!-- Пример ответа от бота -->
+            <div class="message bot-message">
+                <p>Я ChatGPT, созданный OpenAI, и моя цель — помочь вам найти информацию и отвечать на ваши вопросы.</p>
+            </div>
+        </div>
+
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Введите сообщение...">
+            <button id="send-button">Отправить</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ChatGPT. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
