@@ -1,79 +1,11 @@
-import java.util.Stack;
-
-public class QuickSort {
-
-    public static void quickSort(int[] array) {
-        Stack<int[]> stack = new Stack<>();
-        stack.push(new int[] { 0, array.length - 1 });
-        
-        while (!stack.isEmpty()) {
-            int[] range = stack.pop();
-            int low = range[0];
-            int high = range[1];
-            
-            if (low < high) {
-                int pivotIndex = partition(array, low, high);
-                stack.push(new int[] { low, pivotIndex - 1 });
-                stack.push(new int[] { pivotIndex + 1, high });
-            }
-        }
-    }
-
-    // Метод для разделения массива
-    private static int partition(int[] array, int low, int high) {
-        // Выбираем медиану из первого, последнего и среднего элементов как pivot
-        int mid = low + (high - low) / 2;
-        int pivot = medianOfThree(array, low, mid, high);
-
-        while (low <= high) {
-            while (array[low] < pivot) {
-                low++;
-            }
-            while (array[high] > pivot) {
-                high--;
-            }
-            if (low <= high) {
-                swap(array, low, high);
-                low++;
-                high--;
-            }
-        }
-        return low;
-    }
-
-    // Метод для нахождения медианы из трёх элементов
-    private static int medianOfThree(int[] array, int low, int mid, int high) {
-        if (array[low] > array[mid]) {
-            swap(array, low, mid);
-        }
-        if (array[low] > array[high]) {
-            swap(array, low, high);
-        }
-        if (array[mid] > array[high]) {
-            swap(array, mid, high);
-        }
-        return array[mid];
-    }
-
-    // Метод для обмена элементов
-    private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-
-    public static void main(String[] args) {
-        int size = 100000; // Массив большой длины
-        int[] array = new int[size];
-        for (int i = 0; i < size; i++) {
-            array[i] = (int) (Math.random() * size);
-        }
-
-        quickSort(array);
-
-        // Проверка: вывод первых 10 элементов отсортированного массива
-        for (int i = 0; i < 10; i++) {
-            System.out.print(array[i] + " ");
-        }
-    }
-}
+Напишите функцию int[] removeDuplicates(int[] array), 
+которая возвращает массив, в котором удалены повторяющиеся элементы из 
+массива.
+2. Напишите функцию int[] getFirst(int[] array, int n), 
+которая возвращает фрагмент массива, содержащий первые ‘n’ элементов 
+массива.
+3. Напишите функцию int[] getLast(int[] array, int n), 
+которая возвращает фрагмент массива, содержащий последние ‘n’ элементов 
+массива.
+4. Напишите функцию int countIdentic(int[] array), которая 
+возвращает количество повторяющихся элементов в массиве.
